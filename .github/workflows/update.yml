@@ -1,27 +1,29 @@
-      - name: Generate cleaned lists (verbose)
-        run: |
-          set -x   # modalità verbose
+name: Update AbuseIPDB Clean Lists
 
+on:
+  schedule:
+    - cron: "0 */12 * * *"
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Generate cleaned lists
+        run: |
           clean_only() {
             URL="$1"
             OUT="$2"
 
-            echo ">>> Scarico: $URL"
-            curl -s "$URL" > raw.tmp
-
-            echo ">>> Righe originali:"
-            wc -l raw.tmp
-
-            cat raw.tmp \
+            curl -s "$URL" \
               | sed 's/\r$//' \
               | sed 's/#.*$//' \
               | tr -d ' \t' \
               | grep -Eo '^([0-9]{1,3}\.){3}[0-9]{1,3}(/([0-9]|[1-2][0-9]|3[0-2]))?$' \
               | sort -u \
               > "$OUT"
-
-            echo ">>> Righe pulite ($OUT):"
-            wc -l "$OUT"
           }
 
           clean_only "https://raw.githubusercontent.com/borestad/blocklist-abuseipdb/refs/heads/main/abuseipdb-s100-1d.ipv4" abuseipdb-s100-1d-clean.txt
@@ -34,3 +36,11 @@
           clean_only "https://raw.githubusercontent.com/borestad/blocklist-abuseipdb/refs/heads/main/abuseipdb-s100-120d.ipv4" abuseipdb-s100-120d-clean.txt
           clean_only "https://raw.githubusercontent.com/borestad/blocklist-abuseipdb/refs/heads/main/abuseipdb-s100-180d.ipv4" abuseipdb-s100-180d-clean.txt
           clean_only "https://raw.githubusercontent.com/borestad/blocklist-abuseipdb/refs/heads/main/abuseipdb-s100-365d.ipv4" abuseipdb-s100-365d-clean.txt
+
+      - name: Commit changes
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add *.txt
+          git commit -m "Update cleaned AbuseIPDB lists" || echo "No changes"
+          git push
