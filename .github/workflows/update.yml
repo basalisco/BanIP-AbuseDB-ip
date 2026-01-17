@@ -26,22 +26,21 @@ jobs:
               > "$OUT" || true
           }
 
-          cclean_only() {
-                OUT="$2"
-                URL="$1"
+          clean_only() {
+                  URL="$1"
+                  OUT="$2"
 
-                curl -A "Mozilla/5.0" -L --insecure -s "$URL" || true \
-                  | sed 's/\r$//' \
-                  | sed 's/#.*$//' \
-                  | sed 's/;.*$//' \
-                  | sed 's/,.*$//' \
-                  | sed 's/:.*$//' \
-                  | sed 's/[[:space:]].*$//' \
-                  | tr -d ' \t' \
-                  | grep -Eo '^([0-9]{1,3}\.){3}[0-9]{1,3}(/([0-9]|[1-2][0-9]|3[0-2]))?$' \
-                  | sort -u \
-                  > "$OUT" || true
-              }
+                  curl -A "Mozilla/5.0" -L --insecure -s "$URL" || true \
+                    | sed 's/\r$//' \
+                    | sed 's/#.*$//' \
+                    | sed 's/;.*$//' \
+                    | sed 's/,.*$//' \
+                    | sed 's/:.*$//' \
+                    | sed 's/|.*$//' \
+                    | grep -Eo '([0-9]{1,3}\.){3}[0-9]{1,3}(/[0-9]{1,2})?' \
+                    | sort -u \
+                    > "$OUT" || true
+                }
 
 
           ###############################################
