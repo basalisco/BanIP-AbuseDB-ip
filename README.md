@@ -1,69 +1,166 @@
-# Blocklist Status
+<!-- BADGES_START -->
+<!-- BADGES_END -->
 
-Aggiornamento automatico delle liste pulite.
 
-## Badge per ogni lista
+# 🌍 BanIP AbuseDB IP Lists  
+Repository multilingua: Italiano | English
 
-![abuseipdb-s100-120d-clean](https://img.shields.io/badge/abuseipdb--s100--120d--clean-287156_IP-blue)
-![abuseipdb-s100-14d-clean](https://img.shields.io/badge/abuseipdb--s100--14d--clean-94957_IP-blue)
-![abuseipdb-s100-180d-clean](https://img.shields.io/badge/abuseipdb--s100--180d--clean-451278_IP-blue)
-![abuseipdb-s100-1d-clean](https://img.shields.io/badge/abuseipdb--s100--1d--clean-65414_IP-blue)
-![abuseipdb-s100-30d-clean](https://img.shields.io/badge/abuseipdb--s100--30d--clean-127796_IP-blue)
-![abuseipdb-s100-365d-clean](https://img.shields.io/badge/abuseipdb--s100--365d--clean-1167752_IP-blue)
-![abuseipdb-s100-3d-clean](https://img.shields.io/badge/abuseipdb--s100--3d--clean-69889_IP-blue)
-![abuseipdb-s100-60d-clean](https://img.shields.io/badge/abuseipdb--s100--60d--clean-184331_IP-blue)
-![abuseipdb-s100-7d-clean](https://img.shields.io/badge/abuseipdb--s100--7d--clean-81067_IP-blue)
-![abuseipdb-s100-90d-clean](https://img.shields.io/badge/abuseipdb--s100--90d--clean-246389_IP-blue)
-![bitwire-inbound-clean](https://img.shields.io/badge/bitwire--inbound--clean-3048846_IP-blue)
-![blocklistde-all-clean](https://img.shields.io/badge/blocklistde--all--clean-24024_IP-blue)
-![ciarmy-badguys-clean](https://img.shields.io/badge/ciarmy--badguys--clean-15000_IP-blue)
-![dshield-block-clean](https://img.shields.io/badge/dshield--block--clean-20_IP-blue)
-![emergingthreats-block-clean](https://img.shields.io/badge/emergingthreats--block--clean-1486_IP-blue)
-![feodo-block-clean](https://img.shields.io/badge/feodo--block--clean-5_IP-blue)
-![firehol-level1-clean](https://img.shields.io/badge/firehol--level1--clean-4482_IP-blue)
-![firehol-level2-clean](https://img.shields.io/badge/firehol--level2--clean-16408_IP-blue)
-![firehol-level3-clean](https://img.shields.io/badge/firehol--level3--clean-12587_IP-blue)
-![firehol-level4-clean](https://img.shields.io/badge/firehol--level4--clean-79082_IP-blue)
-![myipms-blacklist-clean](https://img.shields.io/badge/myipms--blacklist--clean-184338_IP-blue)
-![openphish-clean](https://img.shields.io/badge/openphish--clean-1_IP-blue)
-![spamhaus-drop-clean](https://img.shields.io/badge/spamhaus--drop--clean-1461_IP-blue)
-![spamhaus-edrop-clean](https://img.shields.io/badge/spamhaus--edrop--clean-1_IP-blue)
-![sslbl-ip-clean](https://img.shields.io/badge/sslbl--ip--clean-1_IP-blue)
-![stopforumspam-toxic-clean](https://img.shields.io/badge/stopforumspam--toxic--clean-1_IP-blue)
-![talos-blacklist-clean](https://img.shields.io/badge/talos--blacklist--clean-1_IP-blue)
-![urlhaus-ip-clean](https://img.shields.io/badge/urlhaus--ip--clean-1_IP-blue)
+## 📑 Index / Indice
+- [🇮🇹 Italiano](#-italiano)
+- [🇬🇧 English](#-english)
 
-## Tabella riepilogativa
+---
 
-| Lista | IP Totali | Badge |
-|-------|-----------:|--------|
-| `abuseipdb-s100-120d-clean.txt` | 287156 | ![abuseipdb-s100-120d-clean](https://img.shields.io/badge/abuseipdb--s100--120d--clean-287156_IP-blue) |
-| `abuseipdb-s100-14d-clean.txt` | 94957 | ![abuseipdb-s100-14d-clean](https://img.shields.io/badge/abuseipdb--s100--14d--clean-94957_IP-blue) |
-| `abuseipdb-s100-180d-clean.txt` | 451278 | ![abuseipdb-s100-180d-clean](https://img.shields.io/badge/abuseipdb--s100--180d--clean-451278_IP-blue) |
-| `abuseipdb-s100-1d-clean.txt` | 65414 | ![abuseipdb-s100-1d-clean](https://img.shields.io/badge/abuseipdb--s100--1d--clean-65414_IP-blue) |
-| `abuseipdb-s100-30d-clean.txt` | 127796 | ![abuseipdb-s100-30d-clean](https://img.shields.io/badge/abuseipdb--s100--30d--clean-127796_IP-blue) |
-| `abuseipdb-s100-365d-clean.txt` | 1167752 | ![abuseipdb-s100-365d-clean](https://img.shields.io/badge/abuseipdb--s100--365d--clean-1167752_IP-blue) |
-| `abuseipdb-s100-3d-clean.txt` | 69889 | ![abuseipdb-s100-3d-clean](https://img.shields.io/badge/abuseipdb--s100--3d--clean-69889_IP-blue) |
-| `abuseipdb-s100-60d-clean.txt` | 184331 | ![abuseipdb-s100-60d-clean](https://img.shields.io/badge/abuseipdb--s100--60d--clean-184331_IP-blue) |
-| `abuseipdb-s100-7d-clean.txt` | 81067 | ![abuseipdb-s100-7d-clean](https://img.shields.io/badge/abuseipdb--s100--7d--clean-81067_IP-blue) |
-| `abuseipdb-s100-90d-clean.txt` | 246389 | ![abuseipdb-s100-90d-clean](https://img.shields.io/badge/abuseipdb--s100--90d--clean-246389_IP-blue) |
-| `bitwire-inbound-clean.txt` | 3048846 | ![bitwire-inbound-clean](https://img.shields.io/badge/bitwire--inbound--clean-3048846_IP-blue) |
-| `blocklistde-all-clean.txt` | 24024 | ![blocklistde-all-clean](https://img.shields.io/badge/blocklistde--all--clean-24024_IP-blue) |
-| `ciarmy-badguys-clean.txt` | 15000 | ![ciarmy-badguys-clean](https://img.shields.io/badge/ciarmy--badguys--clean-15000_IP-blue) |
-| `dshield-block-clean.txt` | 20 | ![dshield-block-clean](https://img.shields.io/badge/dshield--block--clean-20_IP-blue) |
-| `emergingthreats-block-clean.txt` | 1486 | ![emergingthreats-block-clean](https://img.shields.io/badge/emergingthreats--block--clean-1486_IP-blue) |
-| `feodo-block-clean.txt` | 5 | ![feodo-block-clean](https://img.shields.io/badge/feodo--block--clean-5_IP-blue) |
-| `firehol-level1-clean.txt` | 4482 | ![firehol-level1-clean](https://img.shields.io/badge/firehol--level1--clean-4482_IP-blue) |
-| `firehol-level2-clean.txt` | 16408 | ![firehol-level2-clean](https://img.shields.io/badge/firehol--level2--clean-16408_IP-blue) |
-| `firehol-level3-clean.txt` | 12587 | ![firehol-level3-clean](https://img.shields.io/badge/firehol--level3--clean-12587_IP-blue) |
-| `firehol-level4-clean.txt` | 79082 | ![firehol-level4-clean](https://img.shields.io/badge/firehol--level4--clean-79082_IP-blue) |
-| `myipms-blacklist-clean.txt` | 184338 | ![myipms-blacklist-clean](https://img.shields.io/badge/myipms--blacklist--clean-184338_IP-blue) |
-| `openphish-clean.txt` | 1 | ![openphish-clean](https://img.shields.io/badge/openphish--clean-1_IP-blue) |
-| `spamhaus-drop-clean.txt` | 1461 | ![spamhaus-drop-clean](https://img.shields.io/badge/spamhaus--drop--clean-1461_IP-blue) |
-| `spamhaus-edrop-clean.txt` | 1 | ![spamhaus-edrop-clean](https://img.shields.io/badge/spamhaus--edrop--clean-1_IP-blue) |
-| `sslbl-ip-clean.txt` | 1 | ![sslbl-ip-clean](https://img.shields.io/badge/sslbl--ip--clean-1_IP-blue) |
-| `stopforumspam-toxic-clean.txt` | 1 | ![stopforumspam-toxic-clean](https://img.shields.io/badge/stopforumspam--toxic--clean-1_IP-blue) |
-| `talos-blacklist-clean.txt` | 1 | ![talos-blacklist-clean](https://img.shields.io/badge/talos--blacklist--clean-1_IP-blue) |
-| `urlhaus-ip-clean.txt` | 1 | ![urlhaus-ip-clean](https://img.shields.io/badge/urlhaus--ip--clean-1_IP-blue) |
+# 🇮🇹 Italiano
 
-Generato automaticamente dal workflow GitHub Actions.
+<p align="center">
+
+  <img src="https://img.shields.io/github/actions/workflow/status/basalisco/BanIP-AbuseDB-ip/update.yml?branch=main" alt="Build Status">
+  <img src="https://img.shields.io/github/last-commit/basalisco/BanIP-AbuseDB-ip" alt="Last Update">
+  <img src="https://img.shields.io/github/repo-size/basalisco/BanIP-AbuseDB-ip" alt="Repo Size">
+  <img src="https://img.shields.io/github/license/basalisco/BanIP-AbuseDB-ip" alt="License">
+  <img src="https://img.shields.io/github/stars/basalisco/BanIP-AbuseDB-ip" alt="Stars">
+  <img src="https://img.shields.io/badge/Auto_Update-Enabled-brightgreen" alt="Auto Update">
+  <img src="https://img.shields.io/badge/CIDR-Preserved-success" alt="CIDR Preserved">
+  <img src="https://img.shields.io/badge/banIP-Compatible-blue" alt="banIP Compatible">
+  <img src="https://img.shields.io/badge/Cleaning-Automated-orange" alt="Cleaning Automated">
+
+</p>
+
+---
+
+# 🚀 BanIP AbuseDB IP Lists
+
+Repository contenente liste IP basate su segnalazioni di attività malevola, ottimizzate e completamente compatibili con **banIP** su OpenWrt.
+
+Le liste vengono aggiornate automaticamente ogni ora tramite GitHub Actions, mantenendo:
+
+- formattazione corretta  
+- CIDR preservate  
+- zero duplicati  
+- nessun commento superfluo  
+- output leggero e pulito  
+
+---
+
+## 📌 Origine delle liste
+
+Questo repository non utilizza API key personali e non interroga direttamente AbuseIPDB.
+
+Le liste provengono dal repository pubblico:
+
+https://github.com/borestad/blocklist-abuseipdb
+
+Questo progetto si limita a:
+
+- scaricare tali liste pubbliche  
+- pulirle e normalizzarle  
+- preservare le CIDR  
+- rimuovere duplicati  
+- renderle compatibili con banIP  
+
+---
+
+## 🔧 Utilizzo con banIP
+
+In OpenWrt:
+
+1. Vai su **Services → banIP**  
+2. Aggiungi un nuovo feed personalizzato  
+3. Inserisci l’URL RAW della lista, ad esempio:
+
+https://raw.githubusercontent.com/basalisco/BanIP-AbuseDB-ip/main/abuseipdb_1d.txt
+
+4. Imposta il feed come **INBOUND**  
+5. Salva e riavvia banIP  
+
+---
+
+## 📁 Liste disponibili
+
+- abuseipdb_1d.txt — ultime 24 ore  
+- abuseipdb_3d.txt — ultime 72 ore  
+- abuseipdb_7d.txt — ultima settimana  
+- abuseipdb_14d.txt — ultime due settimane  
+- abuseipdb_30d.txt — ultimo mese  
+
+---
+
+# 🇬🇧 English
+
+<p align="center">
+
+  <img src="https://img.shields.io/github/actions/workflow/status/basalisco/BanIP-AbuseDB-ip/update.yml?branch=main" alt="Build Status">
+  <img src="https://img.shields.io/github/last-commit/basalisco/BanIP-AbuseDB-ip" alt="Last Update">
+  <img src="https://img.shields.io/github/repo-size/basalisco/BanIP-AbuseDB-ip" alt="Repo Size">
+  <img src="https://img.shields.io/github/license/basalisco/BanIP-AbuseDB-ip" alt="License">
+  <img src="https://img.shields.io/github/stars/basalisco/BanIP-AbuseDB-ip" alt="Stars">
+  <img src="https://img.shields.io/badge/Auto_Update-Enabled-brightgreen" alt="Auto Update">
+  <img src="https://img.shields.io/badge/CIDR-Preserved-success" alt="CIDR Preserved">
+  <img src="https://img.shields.io/badge/banIP-Compatible-blue" alt="banIP Compatible">
+  <img src="https://img.shields.io/badge/Cleaning-Automated-orange" alt="Cleaning Automated">
+
+</p>
+
+---
+
+# 🚀 BanIP AbuseDB IP Lists
+
+This repository contains IP blocklists based on malicious activity reports, optimized and fully compatible with **banIP** on OpenWrt.
+
+The lists are automatically updated every hour through GitHub Actions, ensuring:
+
+- correct formatting  
+- preserved CIDRs  
+- zero duplicates  
+- no unnecessary comments  
+- lightweight and clean output  
+
+---
+
+## 📌 Source of the Lists
+
+This repository does not use personal AbuseIPDB API keys and does not query AbuseIPDB directly.
+
+The lists originate from the public repository:
+
+https://github.com/borestad/blocklist-abuseipdb
+
+This project simply:
+
+- downloads those public lists  
+- cleans and normalizes them  
+- preserves CIDRs  
+- removes duplicates  
+- makes them compatible with banIP  
+
+---
+
+## 🔧 How to Use with banIP
+
+On OpenWrt:
+
+1. Go to **Services → banIP**  
+2. Add a new custom feed  
+3. Insert the RAW URL of the list, for example:
+
+https://raw.githubusercontent.com/basalisco/BanIP-AbuseDB-ip/main/abuseipdb_1d.txt
+
+4. Set the feed as **INBOUND**  
+5. Save and restart banIP  
+
+---
+
+## 📁 Available Lists
+
+- abuseipdb_1d.txt — last 24 hours  
+- abuseipdb_3d.txt — last 72 hours  
+- abuseipdb_7d.txt — last week  
+- abuseipdb_14d.txt — last two weeks  
+- abuseipdb_30d.txt — last month  
+
+---
+
+## 📜 License
+
+Distributed under the MIT License.
