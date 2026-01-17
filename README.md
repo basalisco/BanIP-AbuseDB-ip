@@ -64,9 +64,6 @@ In OpenWrt:
 1. Vai su **Services → banIP**  
 2. Aggiungi un nuovo feed personalizzato  
 3. Inserisci l’URL RAW della lista, ad esempio:
-
-https://raw.githubusercontent.com/basalisco/BanIP-AbuseDB-ip/main/abuseipdb_1d.txt
-
 4. Imposta il feed come **INBOUND**  
 5. Salva e riavvia banIP  
 
@@ -139,9 +136,6 @@ On OpenWrt:
 1. Go to **Services → banIP**  
 2. Add a new custom feed  
 3. Insert the RAW URL of the list, for example:
-
-https://raw.githubusercontent.com/basalisco/BanIP-AbuseDB-ip/main/abuseipdb_1d.txt
-
 4. Set the feed as **INBOUND**  
 5. Save and restart banIP  
 
