@@ -26,6 +26,34 @@ jobs:
               > "$OUT"
           }
 
+          clean_only_zip() {
+            URL="$1"
+            OUT="$2"
+
+            TMP_ZIP="tmp_zipfile.zip"
+            TMP_DIR="tmp_zip_extract"
+
+            curl -s "$URL" -o "$TMP_ZIP"
+            mkdir -p "$TMP_DIR"
+            unzip -qq "$TMP_ZIP" -d "$TMP_DIR"
+
+            FILE=$(find "$TMP_DIR" -type f | head -n 1)
+
+            cat "$FILE" \
+              | sed 's/\r$//' \
+              | sed 's/#.*$//' \
+              | tr -d ' \t' \
+              | grep -Eo '^([0-9]{1,3}\.){3}[0-9]{1,3}(/([0-9]|[1-2][0-9]|3[0-2]))?$' \
+              | sort -u \
+              > "$OUT"
+
+            rm -rf "$TMP_ZIP" "$TMP_DIR"
+          }
+
+          ###############################################
+          #  ABUSEIPDB LISTS (GIÀ PRESENTI)
+          ###############################################
+
           clean_only "https://raw.githubusercontent.com/borestad/blocklist-abuseipdb/refs/heads/main/abuseipdb-s100-1d.ipv4" abuseipdb-s100-1d-clean.txt
           clean_only "https://raw.githubusercontent.com/borestad/blocklist-abuseipdb/refs/heads/main/abuseipdb-s100-3d.ipv4" abuseipdb-s100-3d-clean.txt
           clean_only "https://raw.githubusercontent.com/borestad/blocklist-abuseipdb/refs/heads/main/abuseipdb-s100-7d.ipv4" abuseipdb-s100-7d-clean.txt
@@ -37,10 +65,61 @@ jobs:
           clean_only "https://raw.githubusercontent.com/borestad/blocklist-abuseipdb/refs/heads/main/abuseipdb-s100-180d.ipv4" abuseipdb-s100-180d-clean.txt
           clean_only "https://raw.githubusercontent.com/borestad/blocklist-abuseipdb/refs/heads/main/abuseipdb-s100-365d.ipv4" abuseipdb-s100-365d-clean.txt
 
+          ###############################################
+          #  EXTRA PUBLIC BLOCKLISTS (NUOVE)
+          ###############################################
+
+          # bitwire-it
+          clean_only "https://raw.githubusercontent.com/bitwire-it/ipblocklist/main/inbound.txt" bitwire-inbound-clean.txt
+
+          # FireHOL
+          clean_only "http://iplists.firehol.org/files/firehol_level1.netset" firehol-level1-clean.txt
+          clean_only "http://iplists.firehol.org/files/firehol_level2.netset" firehol-level2-clean.txt
+          clean_only "http://iplists.firehol.org/files/firehol_level3.netset" firehol-level3-clean.txt
+          clean_only "http://iplists.firehol.org/files/firehol_level4.netset" firehol-level4-clean.txt
+
+          # DShield
+          clean_only "https://www.dshield.org/block.txt" dshield-block-clean.txt
+
+          # OpenPhish
+          clean_only "https://openphish.com/feed.txt" openphish-clean.txt
+
+          # Spamhaus
+          clean_only "https://www.spamhaus.org/drop/drop.txt" spamhaus-drop-clean.txt
+          clean_only "https://www.spamhaus.org/drop/edrop.txt" spamhaus-edrop-clean.txt
+
+          # CIArmy
+          clean_only "https://cinsscore.com/list/ci-badguys.txt" ciarmy-badguys-clean.txt
+
+          # Blocklist.de
+          clean_only "https://lists.blocklist.de/lists/all.txt" blocklistde-all-clean.txt
+
+          # EmergingThreats
+          clean_only "https://rules.emergingthreats.net/fwrules/emerging-Block-IPs.txt" emergingthreats-block-clean.txt
+
+          # Feodo Tracker
+          clean_only "https://feodotracker.abuse.ch/downloads/ipblocklist.txt" feodo-block-clean.txt
+
+          # SSLBL
+          clean_only "https://sslbl.abuse.ch/blacklist/sslipblacklist.txt" sslbl-ip-clean.txt
+
+          # URLHaus
+          clean_only "https://urlhaus.abuse.ch/downloads/ipblocklist.txt" urlhaus-ip-clean.txt
+
+          # Talos Intelligence
+          clean_only "https://talosintelligence.com/documents/ip-blacklist" talos-blacklist-clean.txt
+
+          # StopForumSpam
+          clean_only "https://www.stopforumspam.com/downloads/toxic_ip.txt" stopforumspam-toxic-clean.txt
+
+          # MyIP.ms (ZIP)
+          clean_only_zip "https://myip.ms/files/blacklist/general/full_blacklist_database.zip" myipms-blacklist-clean.txt
+
       - name: Commit changes
         run: |
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
           git add *.txt
-          git commit -m "Update cleaned AbuseIPDB lists" || echo "No changes"
+          git commit -m "Update cleaned blocklists" || echo "No changes"
           git push
+
