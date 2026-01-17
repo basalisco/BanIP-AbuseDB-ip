@@ -33,6 +33,8 @@ jobs:
               | sed 's/[[:space:]].*$//' \
               | grep -Eo '([0-9]{1,3}\.){3}[0-9]{1,3}(/[0-9]{1,2})?' \
               | sort -u > "$OUT" || true
+
+            add_banner "$OUT"
           }
 
           clean_only_zip() {
@@ -64,6 +66,69 @@ jobs:
               | sort -u > "$OUT" || true
 
             rm -rf "$TMP_ZIP" "$TMP_DIR"
+
+            add_banner "$OUT"
+          }
+
+          add_banner() {
+            FILE="$1"
+            COUNT=$(grep -cE '^[0-9]' "$FILE" || echo 0)
+
+            TMP_HEADER="header.tmp"
+            {
+              echo "###############################################"
+              echo "# File: $FILE"
+              echo "# IP Totali: $COUNT"
+              echo "###############################################"
+              echo
+            } > "$TMP_HEADER"
+
+            cat "$TMP_HEADER" "$FILE" > "${FILE}.tmp"
+            mv "${FILE}.tmp" "$FILE"
+            rm "$TMP_HEADER"
+          }
+
+          update_readme() {
+            README="README.md"
+            TMP="README.tmp"
+
+            echo "Aggiornamento README.md…"
+
+            {
+              echo "# Blocklist Status"
+              echo
+              echo "Aggiornamento automatico delle liste pulite."
+              echo
+              echo "## Badge per ogni lista"
+              echo
+
+              for FILE in *-clean.txt; do
+                COUNT=$(grep -cE '^[0-9]' "$FILE")
+                NAME=$(echo "$FILE" | sed 's/.txt$//')
+                SAFE_NAME=$(echo "$NAME" | sed 's/_/%5F/g' | sed 's/-/--/g')
+                BADGE_URL="https://img.shields.io/badge/${SAFE_NAME}-${COUNT}_IP-blue"
+                echo "![${NAME}](${BADGE_URL})"
+              done
+
+              echo
+              echo "## Tabella riepilogativa"
+              echo
+              echo "| Lista | IP Totali | Badge |"
+              echo "|-------|-----------:|--------|"
+
+              for FILE in *-clean.txt; do
+                COUNT=$(grep -cE '^[0-9]' "$FILE")
+                NAME=$(echo "$FILE" | sed 's/.txt$//')
+                SAFE_NAME=$(echo "$NAME" | sed 's/_/%5F/g' | sed 's/-/--/g')
+                BADGE_URL="https://img.shields.io/badge/${SAFE_NAME}-${COUNT}_IP-blue"
+                echo "| \`$FILE\` | $COUNT | ![$NAME]($BADGE_URL) |"
+              done
+
+              echo
+              echo "Generato automaticamente dal workflow GitHub Actions."
+            } > "$TMP"
+
+            mv "$TMP" "$README"
           }
 
           ###############################################
@@ -102,10 +167,13 @@ jobs:
           clean_only "https://www.stopforumspam.com/downloads/toxic_ip.txt" stopforumspam-toxic-clean.txt
           clean_only_zip "https://myip.ms/files/blacklist/general/full_blacklist_database.zip" myipms-blacklist-clean.txt
 
+          update_readme
+
       - name: Commit changes
         run: |
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
-          git add *.txt || true
-          git commit -m "Update cleaned blocklists" || true
+          git add *.txt README.md || true
+          git commit -m "Update cleaned blocklists and README badges" || true
           git push
+
