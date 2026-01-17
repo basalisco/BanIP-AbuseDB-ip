@@ -27,4 +27,7 @@
   <!-- Cleaning automated -->
   <img src="https://img.shields.io/badge/Cleaning-Automated-orange" alt="Cleaning Automated">
 
+  ![IP Count](https://img.shields.io/badge/IPs-XXXX-blue)
+
+
 </p>
