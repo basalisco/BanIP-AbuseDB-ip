@@ -1,19 +1,19 @@
 <p align="center">
 
   <!-- Workflow status -->
-  <img src="https://img.shields.io/github/actions/workflow/status/USER/REPO/update.yml?branch=main" alt="Build Status">
+  <img src="https://img.shields.io/github/actions/workflow/status/basalisco/BanIP-AbuseDB-ip/update.yml?branch=main" alt="Build Status">
 
   <!-- Last update -->
-  <img src="https://img.shields.io/github/last-commit/USER/REPO" alt="Last Update">
+  <img src="https://img.shields.io/github/last-commit/basalisco/BanIP-AbuseDB-ip" alt="Last Update">
 
   <!-- Repo size -->
-  <img src="https://img.shields.io/github/repo-size/USER/REPO" alt="Repo Size">
+  <img src="https://img.shields.io/github/repo-size/basalisco/BanIP-AbuseDB-ip" alt="Repo Size">
 
   <!-- License -->
-  <img src="https://img.shields.io/github/license/USER/REPO" alt="License">
+  <img src="https://img.shields.io/github/license/basalisco/BanIP-AbuseDB-ip" alt="License">
 
   <!-- Stars -->
-  <img src="https://img.shields.io/github/stars/USER/REPO" alt="Stars">
+  <img src="https://img.shields.io/github/stars/basalisco/BanIP-AbuseDB-ip" alt="Stars">
 
   <!-- Auto update enabled -->
   <img src="https://img.shields.io/badge/Auto_Update-Enabled-brightgreen" alt="Auto Update">
