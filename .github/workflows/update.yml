@@ -1,3 +1,16 @@
+name: Update AbuseIPDB Clean Lists
+
+on:
+  schedule:
+    - cron: "0 */1 * * *"
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
       - name: Generate cleaned lists
         run: |
           clean_only() {
@@ -87,3 +100,11 @@
           clean_only "https://www.stopforumspam.com/downloads/toxic_ip.txt" stopforumspam-toxic-clean.txt || true
 
           clean_only_zip "https://myip.ms/files/blacklist/general/full_blacklist_database.zip" myipms-blacklist-clean.txt || true
+
+      - name: Commit changes
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add *.txt
+          git commit -m "Update cleaned blocklists" || echo "No changes"
+          git push
