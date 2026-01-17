@@ -1,4 +1,4 @@
-name: Update AbuseIPDB Expanded Lists
+name: Update AbuseIPDB Clean Lists
 
 on:
   schedule:
@@ -11,12 +11,9 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Install iprange
-        run: sudo apt-get update && sudo apt-get install -y iprange
-
-      - name: Generate expanded lists
+      - name: Generate cleaned lists
         run: |
-          clean_and_expand() {
+          clean_only() {
             URL="$1"
             OUT="$2"
 
@@ -25,32 +22,26 @@ jobs:
               | sed 's/#.*$//' \
               | tr -d ' \t' \
               | grep -Eo '^([0-9]{1,3}\.){3}[0-9]{1,3}(/([0-9]|[1-2][0-9]|3[0-2]))?$' \
-              | while read line; do
-                  if echo "$line" | grep -q "/"; then
-                    iprange "$line"
-                  else
-                    echo "$line"
-                  fi
-                done \
               | sort -u \
               > "$OUT"
           }
 
-          clean_and_expand "https://raw.githubusercontent.com/borestad/blocklist-abuseipdb/refs/heads/main/abuseipdb-s100-1d.ipv4" abuseipdb-s100-1d-expanded.txt
-          clean_and_expand "https://raw.githubusercontent.com/borestad/blocklist-abuseipdb/refs/heads/main/abuseipdb-s100-3d.ipv4" abuseipdb-s100-3d-expanded.txt
-          clean_and_expand "https://raw.githubusercontent.com/borestad/blocklist-abuseipdb/refs/heads/main/abuseipdb-s100-7d.ipv4" abuseipdb-s100-7d-expanded.txt
-          clean_and_expand "https://raw.githubusercontent.com/borestad/blocklist-abuseipdb/refs/heads/main/abuseipdb-s100-14d.ipv4" abuseipdb-s100-14d-expanded.txt
-          clean_and_expand "https://raw.githubusercontent.com/borestad/blocklist-abuseipdb/refs/heads/main/abuseipdb-s100-30d.ipv4" abuseipdb-s100-30d-expanded.txt
-          clean_and_expand "https://raw.githubusercontent.com/borestad/blocklist-abuseipdb/refs/heads/main/abuseipdb-s100-60d.ipv4" abuseipdb-s100-60d-expanded.txt
-          clean_and_expand "https://raw.githubusercontent.com/borestad/blocklist-abuseipdb/refs/heads/main/abuseipdb-s100-90d.ipv4" abuseipdb-s100-90d-expanded.txt
-          clean_and_expand "https://raw.githubusercontent.com/borestad/blocklist-abuseipdb/refs/heads/main/abuseipdb-s100-120d.ipv4" abuseipdb-s100-120d-expanded.txt
-          clean_and_expand "https://raw.githubusercontent.com/borestad/blocklist-abuseipdb/refs/heads/main/abuseipdb-s100-180d.ipv4" abuseipdb-s100-180d-expanded.txt
-          clean_and_expand "https://raw.githubusercontent.com/borestad/blocklist-abuseipdb/refs/heads/main/abuseipdb-s100-365d.ipv4" abuseipdb-s100-365d-expanded.txt
+          clean_only "https://raw.githubusercontent.com/borestad/blocklist-abuseipdb/refs/heads/main/abuseipdb-s100-1d.ipv4" abuseipdb-s100-1d-clean.txt
+          clean_only "https://raw.githubusercontent.com/borestad/blocklist-abuseipdb/refs/heads/main/abuseipdb-s100-3d.ipv4" abuseipdb-s100-3d-clean.txt
+          clean_only "https://raw.githubusercontent.com/borestad/blocklist-abuseipdb/refs/heads/main/abuseipdb-s100-7d.ipv4" abuseipdb-s100-7d-clean.txt
+          clean_only "https://raw.githubusercontent.com/borestad/blocklist-abuseipdb/refs/heads/main/abuseipdb-s100-14d.ipv4" abuseipdb-s100-14d-clean.txt
+          clean_only "https://raw.githubusercontent.com/borestad/blocklist-abuseipdb/refs/heads/main/abuseipdb-s100-30d.ipv4" abuseipdb-s100-30d-clean.txt
+          clean_only "https://raw.githubusercontent.com/borestad/blocklist-abuseipdb/refs/heads/main/abuseipdb-s100-60d.ipv4" abuseipdb-s100-60d-clean.txt
+          clean_only "https://raw.githubusercontent.com/borestad/blocklist-abuseipdb/refs/heads/main/abuseipdb-s100-90d.ipv4" abuseipdb-s100-90d-clean.txt
+          clean_only "https://raw.githubusercontent.com/borestad/blocklist-abuseipdb/refs/heads/main/abuseipdb-s100-120d.ipv4" abuseipdb-s100-120d-clean.txt
+          clean_only "https://raw.githubusercontent.com/borestad/blocklist-abuseipdb/refs/heads/main/abuseipdb-s100-180d.ipv4" abuseipdb-s100-180d-clean.txt
+          clean_only "https://raw.githubusercontent.com/borestad/blocklist-abuseipdb/refs/heads/main/abuseipdb-s100-365d.ipv4" abuseipdb-s100-365d-clean.txt
 
       - name: Commit changes
         run: |
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
           git add *.txt
-          git commit -m "Update expanded AbuseIPDB lists" || echo "No changes"
+          git commit -m "Update cleaned AbuseIPDB lists" || echo "No changes"
           git push
+
