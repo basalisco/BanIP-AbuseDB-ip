@@ -33,29 +33,50 @@
 
 # 🚀 BanIP AbuseDB IP Lists
 
-Repository contenente liste IP generate da **AbuseIPDB**, pulite, ottimizzate e completamente compatibili con **banIP** su OpenWrt.
+Repository contenente liste IP basate su segnalazioni di attività malevola, ottimizzate e completamente compatibili con **banIP** su OpenWrt.
 
 Le liste vengono aggiornate automaticamente ogni ora tramite GitHub Actions, mantenendo:
 
 - formattazione corretta  
 - CIDR preservate  
-- nessun duplicato  
+- zero duplicati  
 - nessun commento superfluo  
 - output leggero e pulito  
 
-Perfetto per chi vuole una protezione affidabile e costante contro IP malevoli.
+Perfetto per chi vuole una protezione affidabile e costante contro IP ostili.
+
+---
+
+# 📌 Origine delle liste
+
+Questo repository **non utilizza API key personali** e **non interroga direttamente AbuseIPDB**.
+
+Le liste provengono dal repository pubblico:
+
+https://github.com/borestad/blocklist-abuseipdb
+
+che pubblica dati basati su segnalazioni AbuseIPDB.  
+Questo progetto si limita a:
+
+- scaricare tali liste pubbliche  
+- pulirle e normalizzarle  
+- preservare le CIDR  
+- rimuovere duplicati  
+- renderle compatibili con banIP  
+
+Questo repository **non è affiliato con AbuseIPDB** e **non redistribuisce dati ottenuti tramite API private**.
 
 ---
 
 # ✨ Features
 
-- 🔄 **Aggiornamento automatico ogni ora**
-- 🧹 **Pulizia e normalizzazione delle liste**
-- 🧩 **Compatibilità totale con banIP**
-- 📦 **CIDR preservate**
-- ⚡ **Zero duplicati**
-- 🛡 **Liste pronte all’uso**
-- 📊 **Repository leggero e ottimizzato**
+- 🔄 Aggiornamento automatico ogni ora  
+- 🧹 Pulizia e normalizzazione delle liste  
+- 🧩 Compatibilità totale con banIP  
+- 📦 CIDR preservate  
+- ⚡ Zero duplicati  
+- 🛡 Liste pronte all’uso  
+- 📊 Repository leggero e ottimizzato  
 
 ---
 
@@ -63,11 +84,10 @@ Perfetto per chi vuole una protezione affidabile e costante contro IP malevoli.
 
 Il workflow GitHub Actions:
 
-1. sincronizza il fork con il repository originale (se presente)  
-2. scarica le liste AbuseIPDB  
-3. esegue lo script di pulizia  
-4. aggiorna i file solo se ci sono modifiche reali  
-5. committa automaticamente  
+1. scarica le liste pubbliche  
+2. esegue lo script di pulizia  
+3. aggiorna i file solo se ci sono modifiche reali  
+4. committa automaticamente  
 
 Il tutto **ogni ora**, senza intervento manuale.
 
@@ -77,7 +97,7 @@ Il tutto **ogni ora**, senza intervento manuale.
 
 In OpenWrt:
 
-1. Vai su **Services → banIP**
-2. Aggiungi un nuovo feed personalizzato
+1. Vai su **Services → banIP**  
+2. Aggiungi un nuovo feed personalizzato  
 3. Inserisci l’URL RAW della lista, ad esempio:
 
