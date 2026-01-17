@@ -14,20 +14,49 @@ jobs:
       - name: Generate cleaned lists
         run: |
           clean_only() {
-                  URL="$1"
-                  OUT="$2"
+                URL="$1"
+                OUT="$2"
 
-                  curl -A "Mozilla/5.0" -L --insecure -s "$URL" || true \
-                    | sed 's/\r$//' \
-                    | sed 's/#.*$//' \
-                    | sed 's/;.*$//' \
-                    | sed 's/,.*$//' \
-                    | sed 's/:.*$//' \
-                    | sed 's/|.*$//' \
-                    | grep -Eo '([0-9]{1,3}\.){3}[0-9]{1,3}(/[0-9]{1,2})?' \
-                    | sort -u \
-                    > "$OUT" || true
-                }
+                curl -A "Mozilla/5.0" -L --insecure -s "$URL" || true \
+                  | sed 's/\r$//' \
+                  | sed 's/#.*$//' \
+                  | sed 's/;.*$//' \
+                  | sed 's/,.*$//' \
+                  | sed 's/:.*$//' \
+                  | sed 's/|.*$//' \
+                  | sed 's/[[:space:]].*$//' \
+                  | grep -Eo '([0-9]{1,3}\.){3}[0-9]{1,3}(/[0-9]{1,2})?' \
+                  | sort -u \
+                  > "$OUT" || true
+              }
+
+          clean_only_zip() {
+                      URL="$1"
+                      OUT="$2"
+
+                      TMP_ZIP="tmp_zipfile.zip"
+                      TMP_DIR="tmp_zip_extract"
+
+                      curl -A "Mozilla/5.0" -L --insecure -s "$URL" -o "$TMP_ZIP" || true
+                      mkdir -p "$TMP_DIR"
+                      unzip -qq "$TMP_ZIP" -d "$TMP_DIR" || true
+
+                      FILE=$(find "$TMP_DIR" -type f | head -n 1)
+
+                      cat "$FILE" \
+                        | sed 's/\r$//' \
+                        | sed 's/#.*$//' \
+                        | sed 's/;.*$//' \
+                        | sed 's/,.*$//' \
+                        | sed 's/:.*$//' \
+                        | sed 's/|.*$//' \
+                        | sed 's/[[:space:]].*$//' \
+                        | grep -Eo '([0-9]{1,3}\.){3}[0-9]{1,3}(/[0-9]{1,2})?' \
+                        | sort -u \
+                        > "$OUT" || true
+
+                      rm -rf "$TMP_ZIP" "$TMP_DIR"
+                    }
 
 
           ###############################################
@@ -86,5 +115,5 @@ jobs:
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
           git add *.txt
-          git commit -m "Update cleaned blocklists" || echo "No changes"
+          git commit -a --allow-empty -m "Update cleaned blocklists" || true
           git push
