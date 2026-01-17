@@ -14,19 +14,6 @@ jobs:
       - name: Generate cleaned lists
         run: |
           clean_only() {
-            URL="$1"
-            OUT="$2"
-
-            curl -A "Mozilla/5.0" -L --insecure -s "$URL" || true \
-              | sed 's/\r$//' \
-              | sed 's/#.*$//' \
-              | tr -d ' \t' \
-              | grep -Eo '^([0-9]{1,3}\.){3}[0-9]{1,3}(/([0-9]|[1-2][0-9]|3[0-2]))?$' \
-              | sort -u \
-              > "$OUT" || true
-          }
-
-          clean_only() {
                   URL="$1"
                   OUT="$2"
 
