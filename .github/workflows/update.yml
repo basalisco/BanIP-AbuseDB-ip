@@ -8,112 +8,104 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v3
 
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y unzip
+
       - name: Generate cleaned lists
         run: |
-          clean_only() {
-                URL="$1"
-                OUT="$2"
+          set -e
 
-                curl -A "Mozilla/5.0" -L --insecure -s "$URL" || true \
-                  | sed 's/\r$//' \
-                  | sed 's/#.*$//' \
-                  | sed 's/;.*$//' \
-                  | sed 's/,.*$//' \
-                  | sed 's/:.*$//' \
-                  | sed 's/|.*$//' \
-                  | sed 's/[[:space:]].*$//' \
-                  | grep -Eo '([0-9]{1,3}\.){3}[0-9]{1,3}(/[0-9]{1,2})?' \
-                  | sort -u \
-                  > "$OUT" || true
-              }
+          clean_only() {
+            URL="$1"
+            OUT="$2"
+
+            echo "Processing $URL → $OUT"
+
+            curl -A "Mozilla/5.0" -L --insecure -s "$URL" \
+              | sed 's/\r$//' \
+              | sed 's/[#;,:|].*$//' \
+              | sed 's/[[:space:]].*$//' \
+              | grep -Eo '([0-9]{1,3}\.){3}[0-9]{1,3}(/[0-9]{1,2})?' \
+              | sort -u > "$OUT" || true
+          }
 
           clean_only_zip() {
-                      URL="$1"
-                      OUT="$2"
+            URL="$1"
+            OUT="$2"
 
-                      TMP_ZIP="tmp_zipfile.zip"
-                      TMP_DIR="tmp_zip_extract"
+            TMP_ZIP="tmp.zip"
+            TMP_DIR="tmp_zip"
 
-                      curl -A "Mozilla/5.0" -L --insecure -s "$URL" -o "$TMP_ZIP" || true
-                      mkdir -p "$TMP_DIR"
-                      unzip -qq "$TMP_ZIP" -d "$TMP_DIR" || true
+            echo "Processing ZIP $URL → $OUT"
 
-                      FILE=$(find "$TMP_DIR" -type f | head -n 1)
+            curl -A "Mozilla/5.0" -L --insecure -s "$URL" -o "$TMP_ZIP" || true
+            mkdir -p "$TMP_DIR"
+            unzip -qq "$TMP_ZIP" -d "$TMP_DIR" || true
 
-                      cat "$FILE" \
-                        | sed 's/\r$//' \
-                        | sed 's/#.*$//' \
-                        | sed 's/;.*$//' \
-                        | sed 's/,.*$//' \
-                        | sed 's/:.*$//' \
-                        | sed 's/|.*$//' \
-                        | sed 's/[[:space:]].*$//' \
-                        | grep -Eo '([0-9]{1,3}\.){3}[0-9]{1,3}(/[0-9]{1,2})?' \
-                        | sort -u \
-                        > "$OUT" || true
+            FILE=$(find "$TMP_DIR" -type f | head -n 1)
 
-                      rm -rf "$TMP_ZIP" "$TMP_DIR"
-                    }
+            if [ -z "$FILE" ]; then
+              echo "ZIP vuoto o non valido: $URL"
+              rm -rf "$TMP_ZIP" "$TMP_DIR"
+              return
+            fi
 
+            cat "$FILE" \
+              | sed 's/\r$//' \
+              | sed 's/[#;,:|].*$//' \
+              | sed 's/[[:space:]].*$//' \
+              | grep -Eo '([0-9]{1,3}\.){3}[0-9]{1,3}(/[0-9]{1,2})?' \
+              | sort -u > "$OUT" || true
+
+            rm -rf "$TMP_ZIP" "$TMP_DIR"
+          }
 
           ###############################################
           #  ABUSEIPDB LISTS
           ###############################################
-
-          clean_only "https://raw.githubusercontent.com/borestad/blocklist-abuseipdb/refs/heads/main/abuseipdb-s100-1d.ipv4" abuseipdb-s100-1d-clean.txt || true
-          clean_only "https://raw.githubusercontent.com/borestad/blocklist-abuseipdb/refs/heads/main/abuseipdb-s100-3d.ipv4" abuseipdb-s100-3d-clean.txt || true
-          clean_only "https://raw.githubusercontent.com/borestad/blocklist-abuseipdb/refs/heads/main/abuseipdb-s100-7d.ipv4" abuseipdb-s100-7d-clean.txt || true
-          clean_only "https://raw.githubusercontent.com/borestad/blocklist-abuseipdb/refs/heads/main/abuseipdb-s100-14d.ipv4" abuseipdb-s100-14d-clean.txt || true
-          clean_only "https://raw.githubusercontent.com/borestad/blocklist-abuseipdb/refs/heads/main/abuseipdb-s100-30d.ipv4" abuseipdb-s100-30d-clean.txt || true
-          clean_only "https://raw.githubusercontent.com/borestad/blocklist-abuseipdb/refs/heads/main/abuseipdb-s100-60d.ipv4" abuseipdb-s100-60d-clean.txt || true
-          clean_only "https://raw.githubusercontent.com/borestad/blocklist-abuseipdb/refs/heads/main/abuseipdb-s100-90d.ipv4" abuseipdb-s100-90d-clean.txt || true
-          clean_only "https://raw.githubusercontent.com/borestad/blocklist-abuseipdb/refs/heads/main/abuseipdb-s100-120d.ipv4" abuseipdb-s100-120d-clean.txt || true
-          clean_only "https://raw.githubusercontent.com/borestad/blocklist-abuseipdb/refs/heads/main/abuseipdb-s100-180d.ipv4" abuseipdb-s100-180d-clean.txt || true
-          clean_only "https://raw.githubusercontent.com/borestad/blocklist-abuseipdb/refs/heads/main/abuseipdb-s100-365d.ipv4" abuseipdb-s100-365d-clean.txt || true
+          clean_only "https://raw.githubusercontent.com/borestad/blocklist-abuseipdb/refs/heads/main/abuseipdb-s100-1d.ipv4" abuseipdb-s100-1d-clean.txt
+          clean_only "https://raw.githubusercontent.com/borestad/blocklist-abuseipdb/refs/heads/main/abuseipdb-s100-3d.ipv4" abuseipdb-s100-3d-clean.txt
+          clean_only "https://raw.githubusercontent.com/borestad/blocklist-abuseipdb/refs/heads/main/abuseipdb-s100-7d.ipv4" abuseipdb-s100-7d-clean.txt
+          clean_only "https://raw.githubusercontent.com/borestad/blocklist-abuseipdb/refs/heads/main/abuseipdb-s100-14d.ipv4" abuseipdb-s100-14d-clean.txt
+          clean_only "https://raw.githubusercontent.com/borestad/blocklist-abuseipdb/refs/heads/main/abuseipdb-s100-30d.ipv4" abuseipdb-s100-30d-clean.txt
+          clean_only "https://raw.githubusercontent.com/borestad/blocklist-abuseipdb/refs/heads/main/abuseipdb-s100-60d.ipv4" abuseipdb-s100-60d-clean.txt
+          clean_only "https://raw.githubusercontent.com/borestad/blocklist-abuseipdb/refs/heads/main/abuseipdb-s100-90d.ipv4" abuseipdb-s100-90d-clean.txt
+          clean_only "https://raw.githubusercontent.com/borestad/blocklist-abuseipdb/refs/heads/main/abuseipdb-s100-120d.ipv4" abuseipdb-s100-120d-clean.txt
+          clean_only "https://raw.githubusercontent.com/borestad/blocklist-abuseipdb/refs/heads/main/abuseipdb-s100-180d.ipv4" abuseipdb-s100-180d-clean.txt
+          clean_only "https://raw.githubusercontent.com/borestad/blocklist-abuseipdb/refs/heads/main/abuseipdb-s100-365d.ipv4" abuseipdb-s100-365d-clean.txt
 
           ###############################################
           #  EXTRA PUBLIC BLOCKLISTS
           ###############################################
-
-          clean_only "https://raw.githubusercontent.com/bitwire-it/ipblocklist/main/inbound.txt" bitwire-inbound-clean.txt || true
-
-          clean_only "http://iplists.firehol.org/files/firehol_level1.netset" firehol-level1-clean.txt || true
-          clean_only "http://iplists.firehol.org/files/firehol_level2.netset" firehol-level2-clean.txt || true
-          clean_only "http://iplists.firehol.org/files/firehol_level3.netset" firehol-level3-clean.txt || true
-          clean_only "http://iplists.firehol.org/files/firehol_level4.netset" firehol-level4-clean.txt || true
-
-          clean_only "https://www.dshield.org/block.txt" dshield-block-clean.txt || true
-
-          clean_only "https://openphish.com/feed.txt" openphish-clean.txt || true
-
-          clean_only "https://www.spamhaus.org/drop/drop.txt" spamhaus-drop-clean.txt || true
-          clean_only "https://www.spamhaus.org/drop/edrop.txt" spamhaus-edrop-clean.txt || true
-
-          clean_only "https://cinsscore.com/list/ci-badguys.txt" ciarmy-badguys-clean.txt || true
-
-          clean_only "https://lists.blocklist.de/lists/all.txt" blocklistde-all-clean.txt || true
-
-          clean_only "https://rules.emergingthreats.net/fwrules/emerging-Block-IPs.txt" emergingthreats-block-clean.txt || true
-
-          clean_only "https://feodotracker.abuse.ch/downloads/ipblocklist.txt" feodo-block-clean.txt || true
-
-          clean_only "https://sslbl.abuse.ch/blacklist/sslipblacklist.txt" sslbl-ip-clean.txt || true
-
-          clean_only "https://urlhaus.abuse.ch/downloads/ipblocklist.txt" urlhaus-ip-clean.txt || true
-
-          clean_only "https://talosintelligence.com/documents/ip-blacklist" talos-blacklist-clean.txt || true
-
-          clean_only "https://www.stopforumspam.com/downloads/toxic_ip.txt" stopforumspam-toxic-clean.txt || true
-
-          clean_only_zip "https://myip.ms/files/blacklist/general/full_blacklist_database.zip" myipms-blacklist-clean.txt || true
+          clean_only "https://raw.githubusercontent.com/bitwire-it/ipblocklist/main/inbound.txt" bitwire-inbound-clean.txt
+          clean_only "http://iplists.firehol.org/files/firehol_level1.netset" firehol-level1-clean.txt
+          clean_only "http://iplists.firehol.org/files/firehol_level2.netset" firehol-level2-clean.txt
+          clean_only "http://iplists.firehol.org/files/firehol_level3.netset" firehol-level3-clean.txt
+          clean_only "http://iplists.firehol.org/files/firehol_level4.netset" firehol-level4-clean.txt
+          clean_only "https://www.dshield.org/block.txt" dshield-block-clean.txt
+          clean_only "https://openphish.com/feed.txt" openphish-clean.txt
+          clean_only "https://www.spamhaus.org/drop/drop.txt" spamhaus-drop-clean.txt
+          clean_only "https://www.spamhaus.org/drop/edrop.txt" spamhaus-edrop-clean.txt
+          clean_only "https://cinsscore.com/list/ci-badguys.txt" ciarmy-badguys-clean.txt
+          clean_only "https://lists.blocklist.de/lists/all.txt" blocklistde-all-clean.txt
+          clean_only "https://rules.emergingthreats.net/fwrules/emerging-Block-IPs.txt" emergingthreats-block-clean.txt
+          clean_only "https://feodotracker.abuse.ch/downloads/ipblocklist.txt" feodo-block-clean.txt
+          clean_only "https://sslbl.abuse.ch/blacklist/sslipblacklist.txt" sslbl-ip-clean.txt
+          clean_only "https://urlhaus.abuse.ch/downloads/ipblocklist.txt" urlhaus-ip-clean.txt
+          clean_only "https://talosintelligence.com/documents/ip-blacklist" talos-blacklist-clean.txt
+          clean_only "https://www.stopforumspam.com/downloads/toxic_ip.txt" stopforumspam-toxic-clean.txt
+          clean_only_zip "https://myip.ms/files/blacklist/general/full_blacklist_database.zip" myipms-blacklist-clean.txt
 
       - name: Commit changes
         run: |
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
-          git add *.txt
-          git commit -a --allow-empty -m "Update cleaned blocklists" || true
+          git add *.txt || true
+          git commit -m "Update cleaned blocklists" || true
           git push
