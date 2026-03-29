@@ -4,27 +4,27 @@ Aggiornamento automatico delle liste pulite.
 
 ## Badge per ogni lista
 
-![abuseipdb-s100-120d-clean](https://img.shields.io/badge/abuseipdb--s100--120d--clean-318153_IP-blue)
-![abuseipdb-s100-14d-clean](https://img.shields.io/badge/abuseipdb--s100--14d--clean-120199_IP-blue)
-![abuseipdb-s100-180d-clean](https://img.shields.io/badge/abuseipdb--s100--180d--clean-409281_IP-blue)
-![abuseipdb-s100-1d-clean](https://img.shields.io/badge/abuseipdb--s100--1d--clean-71302_IP-blue)
-![abuseipdb-s100-30d-clean](https://img.shields.io/badge/abuseipdb--s100--30d--clean-167925_IP-blue)
-![abuseipdb-s100-365d-clean](https://img.shields.io/badge/abuseipdb--s100--365d--clean-1074044_IP-blue)
-![abuseipdb-s100-3d-clean](https://img.shields.io/badge/abuseipdb--s100--3d--clean-77198_IP-blue)
-![abuseipdb-s100-60d-clean](https://img.shields.io/badge/abuseipdb--s100--60d--clean-224506_IP-blue)
-![abuseipdb-s100-7d-clean](https://img.shields.io/badge/abuseipdb--s100--7d--clean-94768_IP-blue)
-![abuseipdb-s100-90d-clean](https://img.shields.io/badge/abuseipdb--s100--90d--clean-265823_IP-blue)
-![bitwire-inbound-clean](https://img.shields.io/badge/bitwire--inbound--clean-3331340_IP-blue)
-![blocklistde-all-clean](https://img.shields.io/badge/blocklistde--all--clean-34285_IP-blue)
+![abuseipdb-s100-120d-clean](https://img.shields.io/badge/abuseipdb--s100--120d--clean-318433_IP-blue)
+![abuseipdb-s100-14d-clean](https://img.shields.io/badge/abuseipdb--s100--14d--clean-120563_IP-blue)
+![abuseipdb-s100-180d-clean](https://img.shields.io/badge/abuseipdb--s100--180d--clean-409558_IP-blue)
+![abuseipdb-s100-1d-clean](https://img.shields.io/badge/abuseipdb--s100--1d--clean-72074_IP-blue)
+![abuseipdb-s100-30d-clean](https://img.shields.io/badge/abuseipdb--s100--30d--clean-168240_IP-blue)
+![abuseipdb-s100-365d-clean](https://img.shields.io/badge/abuseipdb--s100--365d--clean-1074306_IP-blue)
+![abuseipdb-s100-3d-clean](https://img.shields.io/badge/abuseipdb--s100--3d--clean-77766_IP-blue)
+![abuseipdb-s100-60d-clean](https://img.shields.io/badge/abuseipdb--s100--60d--clean-224801_IP-blue)
+![abuseipdb-s100-7d-clean](https://img.shields.io/badge/abuseipdb--s100--7d--clean-95196_IP-blue)
+![abuseipdb-s100-90d-clean](https://img.shields.io/badge/abuseipdb--s100--90d--clean-266106_IP-blue)
+![bitwire-inbound-clean](https://img.shields.io/badge/bitwire--inbound--clean-3331463_IP-blue)
+![blocklistde-all-clean](https://img.shields.io/badge/blocklistde--all--clean-33646_IP-blue)
 ![ciarmy-badguys-clean](https://img.shields.io/badge/ciarmy--badguys--clean-15000_IP-blue)
 ![dshield-block-clean](https://img.shields.io/badge/dshield--block--clean-20_IP-blue)
 ![emergingthreats-block-clean](https://img.shields.io/badge/emergingthreats--block--clean-1576_IP-blue)
 ![feodo-block-clean](https://img.shields.io/badge/feodo--block--clean-5_IP-blue)
-![firehol-level1-clean](https://img.shields.io/badge/firehol--level1--clean-4584_IP-blue)
-![firehol-level2-clean](https://img.shields.io/badge/firehol--level2--clean-29294_IP-blue)
+![firehol-level1-clean](https://img.shields.io/badge/firehol--level1--clean-4585_IP-blue)
+![firehol-level2-clean](https://img.shields.io/badge/firehol--level2--clean-28879_IP-blue)
 ![firehol-level3-clean](https://img.shields.io/badge/firehol--level3--clean-14205_IP-blue)
-![firehol-level4-clean](https://img.shields.io/badge/firehol--level4--clean-85342_IP-blue)
-![myipms-blacklist-clean](https://img.shields.io/badge/myipms--blacklist--clean-186456_IP-blue)
+![firehol-level4-clean](https://img.shields.io/badge/firehol--level4--clean-85254_IP-blue)
+![myipms-blacklist-clean](https://img.shields.io/badge/myipms--blacklist--clean-186458_IP-blue)
 ![openphish-clean](https://img.shields.io/badge/openphish--clean-1_IP-blue)
 ![spamhaus-drop-clean](https://img.shields.io/badge/spamhaus--drop--clean-1553_IP-blue)
 ![spamhaus-edrop-clean](https://img.shields.io/badge/spamhaus--edrop--clean-1_IP-blue)
@@ -37,27 +37,27 @@ Aggiornamento automatico delle liste pulite.
 
 | Lista | IP Totali | Badge |
 |-------|-----------:|--------|
-| `abuseipdb-s100-120d-clean.txt` | 318153 | ![abuseipdb-s100-120d-clean](https://img.shields.io/badge/abuseipdb--s100--120d--clean-318153_IP-blue) |
-| `abuseipdb-s100-14d-clean.txt` | 120199 | ![abuseipdb-s100-14d-clean](https://img.shields.io/badge/abuseipdb--s100--14d--clean-120199_IP-blue) |
-| `abuseipdb-s100-180d-clean.txt` | 409281 | ![abuseipdb-s100-180d-clean](https://img.shields.io/badge/abuseipdb--s100--180d--clean-409281_IP-blue) |
-| `abuseipdb-s100-1d-clean.txt` | 71302 | ![abuseipdb-s100-1d-clean](https://img.shields.io/badge/abuseipdb--s100--1d--clean-71302_IP-blue) |
-| `abuseipdb-s100-30d-clean.txt` | 167925 | ![abuseipdb-s100-30d-clean](https://img.shields.io/badge/abuseipdb--s100--30d--clean-167925_IP-blue) |
-| `abuseipdb-s100-365d-clean.txt` | 1074044 | ![abuseipdb-s100-365d-clean](https://img.shields.io/badge/abuseipdb--s100--365d--clean-1074044_IP-blue) |
-| `abuseipdb-s100-3d-clean.txt` | 77198 | ![abuseipdb-s100-3d-clean](https://img.shields.io/badge/abuseipdb--s100--3d--clean-77198_IP-blue) |
-| `abuseipdb-s100-60d-clean.txt` | 224506 | ![abuseipdb-s100-60d-clean](https://img.shields.io/badge/abuseipdb--s100--60d--clean-224506_IP-blue) |
-| `abuseipdb-s100-7d-clean.txt` | 94768 | ![abuseipdb-s100-7d-clean](https://img.shields.io/badge/abuseipdb--s100--7d--clean-94768_IP-blue) |
-| `abuseipdb-s100-90d-clean.txt` | 265823 | ![abuseipdb-s100-90d-clean](https://img.shields.io/badge/abuseipdb--s100--90d--clean-265823_IP-blue) |
-| `bitwire-inbound-clean.txt` | 3331340 | ![bitwire-inbound-clean](https://img.shields.io/badge/bitwire--inbound--clean-3331340_IP-blue) |
-| `blocklistde-all-clean.txt` | 34285 | ![blocklistde-all-clean](https://img.shields.io/badge/blocklistde--all--clean-34285_IP-blue) |
+| `abuseipdb-s100-120d-clean.txt` | 318433 | ![abuseipdb-s100-120d-clean](https://img.shields.io/badge/abuseipdb--s100--120d--clean-318433_IP-blue) |
+| `abuseipdb-s100-14d-clean.txt` | 120563 | ![abuseipdb-s100-14d-clean](https://img.shields.io/badge/abuseipdb--s100--14d--clean-120563_IP-blue) |
+| `abuseipdb-s100-180d-clean.txt` | 409558 | ![abuseipdb-s100-180d-clean](https://img.shields.io/badge/abuseipdb--s100--180d--clean-409558_IP-blue) |
+| `abuseipdb-s100-1d-clean.txt` | 72074 | ![abuseipdb-s100-1d-clean](https://img.shields.io/badge/abuseipdb--s100--1d--clean-72074_IP-blue) |
+| `abuseipdb-s100-30d-clean.txt` | 168240 | ![abuseipdb-s100-30d-clean](https://img.shields.io/badge/abuseipdb--s100--30d--clean-168240_IP-blue) |
+| `abuseipdb-s100-365d-clean.txt` | 1074306 | ![abuseipdb-s100-365d-clean](https://img.shields.io/badge/abuseipdb--s100--365d--clean-1074306_IP-blue) |
+| `abuseipdb-s100-3d-clean.txt` | 77766 | ![abuseipdb-s100-3d-clean](https://img.shields.io/badge/abuseipdb--s100--3d--clean-77766_IP-blue) |
+| `abuseipdb-s100-60d-clean.txt` | 224801 | ![abuseipdb-s100-60d-clean](https://img.shields.io/badge/abuseipdb--s100--60d--clean-224801_IP-blue) |
+| `abuseipdb-s100-7d-clean.txt` | 95196 | ![abuseipdb-s100-7d-clean](https://img.shields.io/badge/abuseipdb--s100--7d--clean-95196_IP-blue) |
+| `abuseipdb-s100-90d-clean.txt` | 266106 | ![abuseipdb-s100-90d-clean](https://img.shields.io/badge/abuseipdb--s100--90d--clean-266106_IP-blue) |
+| `bitwire-inbound-clean.txt` | 3331463 | ![bitwire-inbound-clean](https://img.shields.io/badge/bitwire--inbound--clean-3331463_IP-blue) |
+| `blocklistde-all-clean.txt` | 33646 | ![blocklistde-all-clean](https://img.shields.io/badge/blocklistde--all--clean-33646_IP-blue) |
 | `ciarmy-badguys-clean.txt` | 15000 | ![ciarmy-badguys-clean](https://img.shields.io/badge/ciarmy--badguys--clean-15000_IP-blue) |
 | `dshield-block-clean.txt` | 20 | ![dshield-block-clean](https://img.shields.io/badge/dshield--block--clean-20_IP-blue) |
 | `emergingthreats-block-clean.txt` | 1576 | ![emergingthreats-block-clean](https://img.shields.io/badge/emergingthreats--block--clean-1576_IP-blue) |
 | `feodo-block-clean.txt` | 5 | ![feodo-block-clean](https://img.shields.io/badge/feodo--block--clean-5_IP-blue) |
-| `firehol-level1-clean.txt` | 4584 | ![firehol-level1-clean](https://img.shields.io/badge/firehol--level1--clean-4584_IP-blue) |
-| `firehol-level2-clean.txt` | 29294 | ![firehol-level2-clean](https://img.shields.io/badge/firehol--level2--clean-29294_IP-blue) |
+| `firehol-level1-clean.txt` | 4585 | ![firehol-level1-clean](https://img.shields.io/badge/firehol--level1--clean-4585_IP-blue) |
+| `firehol-level2-clean.txt` | 28879 | ![firehol-level2-clean](https://img.shields.io/badge/firehol--level2--clean-28879_IP-blue) |
 | `firehol-level3-clean.txt` | 14205 | ![firehol-level3-clean](https://img.shields.io/badge/firehol--level3--clean-14205_IP-blue) |
-| `firehol-level4-clean.txt` | 85342 | ![firehol-level4-clean](https://img.shields.io/badge/firehol--level4--clean-85342_IP-blue) |
-| `myipms-blacklist-clean.txt` | 186456 | ![myipms-blacklist-clean](https://img.shields.io/badge/myipms--blacklist--clean-186456_IP-blue) |
+| `firehol-level4-clean.txt` | 85254 | ![firehol-level4-clean](https://img.shields.io/badge/firehol--level4--clean-85254_IP-blue) |
+| `myipms-blacklist-clean.txt` | 186458 | ![myipms-blacklist-clean](https://img.shields.io/badge/myipms--blacklist--clean-186458_IP-blue) |
 | `openphish-clean.txt` | 1 | ![openphish-clean](https://img.shields.io/badge/openphish--clean-1_IP-blue) |
 | `spamhaus-drop-clean.txt` | 1553 | ![spamhaus-drop-clean](https://img.shields.io/badge/spamhaus--drop--clean-1553_IP-blue) |
 | `spamhaus-edrop-clean.txt` | 1 | ![spamhaus-edrop-clean](https://img.shields.io/badge/spamhaus--edrop--clean-1_IP-blue) |
