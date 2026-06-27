@@ -14,8 +14,8 @@ Aggiornamento automatico delle liste pulite.
 ![abuseipdb-s100-60d-clean](https://img.shields.io/badge/abuseipdb--s100--60d--clean-181709_IP-blue)
 ![abuseipdb-s100-7d-clean](https://img.shields.io/badge/abuseipdb--s100--7d--clean-65092_IP-blue)
 ![abuseipdb-s100-90d-clean](https://img.shields.io/badge/abuseipdb--s100--90d--clean-236009_IP-blue)
-![bitwire-inbound-clean](https://img.shields.io/badge/bitwire--inbound--clean-3808690_IP-blue)
-![blocklistde-all-clean](https://img.shields.io/badge/blocklistde--all--clean-21976_IP-blue)
+![bitwire-inbound-clean](https://img.shields.io/badge/bitwire--inbound--clean-3807157_IP-blue)
+![blocklistde-all-clean](https://img.shields.io/badge/blocklistde--all--clean-21917_IP-blue)
 ![ciarmy-badguys-clean](https://img.shields.io/badge/ciarmy--badguys--clean-15000_IP-blue)
 ![dshield-block-clean](https://img.shields.io/badge/dshield--block--clean-20_IP-blue)
 ![emergingthreats-block-clean](https://img.shields.io/badge/emergingthreats--block--clean-1720_IP-blue)
@@ -47,8 +47,8 @@ Aggiornamento automatico delle liste pulite.
 | `abuseipdb-s100-60d-clean.txt` | 181709 | ![abuseipdb-s100-60d-clean](https://img.shields.io/badge/abuseipdb--s100--60d--clean-181709_IP-blue) |
 | `abuseipdb-s100-7d-clean.txt` | 65092 | ![abuseipdb-s100-7d-clean](https://img.shields.io/badge/abuseipdb--s100--7d--clean-65092_IP-blue) |
 | `abuseipdb-s100-90d-clean.txt` | 236009 | ![abuseipdb-s100-90d-clean](https://img.shields.io/badge/abuseipdb--s100--90d--clean-236009_IP-blue) |
-| `bitwire-inbound-clean.txt` | 3808690 | ![bitwire-inbound-clean](https://img.shields.io/badge/bitwire--inbound--clean-3808690_IP-blue) |
-| `blocklistde-all-clean.txt` | 21976 | ![blocklistde-all-clean](https://img.shields.io/badge/blocklistde--all--clean-21976_IP-blue) |
+| `bitwire-inbound-clean.txt` | 3807157 | ![bitwire-inbound-clean](https://img.shields.io/badge/bitwire--inbound--clean-3807157_IP-blue) |
+| `blocklistde-all-clean.txt` | 21917 | ![blocklistde-all-clean](https://img.shields.io/badge/blocklistde--all--clean-21917_IP-blue) |
 | `ciarmy-badguys-clean.txt` | 15000 | ![ciarmy-badguys-clean](https://img.shields.io/badge/ciarmy--badguys--clean-15000_IP-blue) |
 | `dshield-block-clean.txt` | 20 | ![dshield-block-clean](https://img.shields.io/badge/dshield--block--clean-20_IP-blue) |
 | `emergingthreats-block-clean.txt` | 1720 | ![emergingthreats-block-clean](https://img.shields.io/badge/emergingthreats--block--clean-1720_IP-blue) |
